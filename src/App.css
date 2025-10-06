@@ -125,12 +125,39 @@
     display: none !important;
   }
   
-  body {
+  html, body {
     background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  body * {
+    visibility: visible !important;
   }
   
   @page {
-    size: A4;
-    margin: 1cm;
+    size: 210mm 2970mm; /* Single long page - A4 width, very long height */
+    margin: 0;
+  }
+  
+  .container {
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+  }
+  
+  /* Prevent any page breaks */
+  * {
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+  }
+  
+  /* Scale down slightly to fit better */
+  body {
+    transform: scale(0.95);
+    transform-origin: top center;
   }
 }
