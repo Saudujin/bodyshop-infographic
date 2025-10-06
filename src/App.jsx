@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import './App.css';
 import { 
-  Download, 
   Leaf, 
   Users, 
   Handshake, 
@@ -12,23 +10,12 @@ import {
   Globe,
   Award,
   Target,
-  Lightbulb,
   BarChart3,
   AlertCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function App() {
-  const [isPrinting, setIsPrinting] = useState(false);
-
-  const handleExportPDF = () => {
-    setIsPrinting(true);
-    setTimeout(() => {
-      window.print();
-      setIsPrinting(false);
-    }, 100);
-  };
-
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -45,23 +32,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-      {/* Export Button - Hidden in print */}
-      {!isPrinting && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed top-6 right-6 z-50 no-print"
-        >
-          <button
-            onClick={handleExportPDF}
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-semibold"
-          >
-            <Download className="w-5 h-5" />
-            Export as PDF
-          </button>
-        </motion.div>
-      )}
-
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-6 py-12">
         
